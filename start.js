@@ -12,6 +12,7 @@ try {
     // If it successfully loads, start the bot!
     cortana.startHostedBot();
 } catch (error) {
+    console.error("DEBUG FATAL ERROR: ", error); // Let's see the full stack!
     if (error.code === 'MODULE_NOT_FOUND' && error.message.includes('@depro-tech/cortana-md')) {
         console.log("⏳ Waiting for auto-updater to install the bot engine...");
         // The process stays alive because auto-updater.js has active intervals/timeouts
