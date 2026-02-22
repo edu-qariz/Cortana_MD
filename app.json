@@ -1,0 +1,49 @@
+{
+    "name": "Cortana MD",
+    "description": "CORTANA MD — The Most Advanced WhatsApp Multi-Device Bot. Gen 6 Edition.",
+    "logo": "https://raw.githubusercontent.com/edu-qariz/Cortana_MD/main/cortana-md-logo.svg",
+    "keywords": [
+        "whatsapp",
+        "bot",
+        "cortana",
+        "md",
+        "multi-device",
+        "baileys"
+    ],
+    "website": "https://thecortana.tech",
+    "repository": "https://github.com/edu-qariz/Cortana_MD",
+    "env": {
+        "PREFIX": {
+            "description": "Command prefix for the bot (e.g. . or ! or /)",
+            "value": ".",
+            "required": false
+        },
+        "BOT_NAME": {
+            "description": "Display name for your bot instance",
+            "value": "CORTANA MD",
+            "required": false
+        },
+        "OWNER_NUMBERS": {
+            "description": "Comma-separated owner phone numbers with country code (e.g. 254113374182,255619406167)",
+            "value": "",
+            "required": false
+        },
+        "SESSION_DIR": {
+            "description": "Directory to store session files",
+            "value": "./session",
+            "required": false
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "eco"
+        }
+    },
+    "stack": "heroku-22"
+}
