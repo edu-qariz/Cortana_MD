@@ -8,13 +8,15 @@ require('./auto-updater');
 
 // 2. Try loading the engine
 try {
-    require('@depro-tech/cortana-md');
+    const cortana = require('@depro-tech/cortana-md');
+    // If it successfully loads, start the bot!
+    cortana.startHostedBot();
 } catch (error) {
-    if (error.code === 'MODULE_NOT_FOUND') {
+    if (error.code === 'MODULE_NOT_FOUND' && error.message.includes('@depro-tech/cortana-md')) {
         console.log("⏳ Waiting for auto-updater to install the bot engine...");
         // The process stays alive because auto-updater.js has active intervals/timeouts
     } else {
-        // If it's a different error (like a syntax error inside the engine), throw it
+        // If it's a different error (like a syntax error or a missing internal dependency), throw it
         throw error;
     }
 }
