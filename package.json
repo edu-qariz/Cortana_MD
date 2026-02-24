@@ -8,7 +8,7 @@
         "install-bot": "npm install @depro-tech/cortana-md@latest"
     },
     "dependencies": {
-        "@depro-tech/cortana-md": "1.0.38"
+        "@depro-tech/cortana-md": "1.0.40"
     },
     "engines": {
         "node": ">=18.0.0"
