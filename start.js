@@ -2,22 +2,31 @@
  * CORTANA MD - Shell Loader
  * Imports the updater and the NPM bot engine safely.
  */
+const { execSync } = require('child_process');
 
-// 1. Start the Auto Updater
-require('./auto-updater');
+console.log("[Auto-Updater] Checking if @depro-tech/cortana-md is installed...");
 
-// 2. Try loading the engine
 try {
-    const cortana = require('@depro-tech/cortana-md');
-    // If it successfully loads, start the bot!
-    cortana.startHostedBot();
-} catch (error) {
-    console.error("DEBUG FATAL ERROR: ", error); // Let's see the full stack!
-    if (error.code === 'MODULE_NOT_FOUND' && error.message.includes('@depro-tech/cortana-md')) {
-        console.log("⏳ Waiting for auto-updater to install the bot engine...");
-        // The process stays alive because auto-updater.js has active intervals/timeouts
+    // Check if we can resolve it
+    require.resolve('@depro-tech/cortana-md');
+} catch (e) {
+    if (e.code === 'MODULE_NOT_FOUND') {
+        console.log("⏳ Initial boot! Installing bot engine from NPM...");
+        try {
+            execSync(`npm install @depro-tech/cortana-md@latest`, { stdio: 'inherit' });
+            console.log("✅ Installation complete.");
+        } catch (installErr) {
+            console.error("❌ Failed to install bot engine:", installErr.message);
+            process.exit(1);
+        }
     } else {
-        // If it's a different error (like a syntax error or a missing internal dependency), throw it
-        throw error;
+        throw e;
     }
 }
+
+// 1. Start the Auto Updater Background Task
+require('./auto-updater');
+
+// 2. Load the engine and start the bot
+const cortana = require('@depro-tech/cortana-md');
+cortana.startHostedBot();
