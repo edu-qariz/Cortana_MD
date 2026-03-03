@@ -1,6 +1,6 @@
 {
     "name": "cortana-md-bot",
-    "version": "1.2.39",
+    "version": "1.2.40",
     "description": "CORTANA MD WhatsApp Bot — Self-Hosted Edition",
     "main": "index.js",
     "scripts": {
