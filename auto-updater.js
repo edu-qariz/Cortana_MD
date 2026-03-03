@@ -46,7 +46,7 @@ async function checkForUpdates() {
         try {
             execSync(`npm install`, { cwd: process.cwd(), stdio: 'inherit' });
             log("✅ Installation complete. Restarting bot...");
-            process.exit(0); // PM2 or Pterodactyl will automatically restart the process
+            process.exit(1); // Exit with 1 so Pterodactyl/PM2 auto-restarts the "crashed" process
         } catch (e) {
             log(`❌ Failed to install dependencies: ${e.message}`);
         }
@@ -63,7 +63,7 @@ async function checkForUpdates() {
         try {
             execSync(`npm install ${PKG_NAME}@latest`, { cwd: process.cwd(), stdio: 'inherit' });
             log("✅ Update complete! Restarting to apply changes...");
-            process.exit(0); // Exit so Pterodactyl/PM2 restarts with new code
+            process.exit(1); // Exit with 1 so Pterodactyl/PM2 auto-restarts the "crashed" process
         } catch (e) {
             console.error(`❌ Update failed:`, e.message);
         }
