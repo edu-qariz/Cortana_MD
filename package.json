@@ -1,6 +1,6 @@
 {
     "name": "cortana-md-bot",
-    "version": "1.2.21",
+    "version": "1.2.22",
     "description": "CORTANA MD WhatsApp Bot — Self-Hosted Edition",
     "main": "index.js",
     "scripts": {
@@ -8,7 +8,7 @@
         "install-bot": "npm install @depro-tech/cortana-md@latest"
     },
     "dependencies": {
-        "@depro-tech/cortana-md": "^1.2.20"
+        "@depro-tech/cortana-md": "^1.2.22"
     },
     "engines": {
         "node": ">=18.0.0"
