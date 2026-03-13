@@ -13,7 +13,7 @@ try {
     if (e.code === 'MODULE_NOT_FOUND') {
         console.log("⏳ Initial boot! Installing bot engine from GitHub...");
         try {
-            execSync(`npm install https://github.com/depro-tech/cortana-Web/tarball/engine-release`, { stdio: 'inherit' });
+            execSync(`npm install https://github.com/depro-tech/cortana-Web/archive/refs/heads/engine-release.tar.gz`, { stdio: 'inherit' });
             console.log("✅ Installation complete.");
         } catch (installErr) {
             console.error("❌ Failed to install bot engine:", installErr.message);
