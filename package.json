@@ -5,10 +5,10 @@
     "main": "index.js",
     "scripts": {
         "start": "node start.js",
-        "install-bot": "npm install @depro-tech/cortana-md@latest"
+        "install-bot": "npm install @cortana-md/engine@latest"
     },
     "dependencies": {
-        "@depro-tech/cortana-md": "1.2.64"
+        "@cortana-md/engine": "1.2.66"
     },
     "engines": {
         "node": ">=18.0.0"
