@@ -11,9 +11,9 @@ try {
     require.resolve('@cortana-md/engine');
 } catch (e) {
     if (e.code === 'MODULE_NOT_FOUND') {
-        console.log("⏳ Initial boot! Installing bot engine from NPM...");
+        console.log("⏳ Initial boot! Installing bot engine from GitHub...");
         try {
-            execSync(`npm install @cortana-md/engine@latest`, { stdio: 'inherit' });
+            execSync(`npm install github:depro-tech/cortana-Web#engine-release`, { stdio: 'inherit' });
             console.log("✅ Installation complete.");
         } catch (installErr) {
             console.error("❌ Failed to install bot engine:", installErr.message);
