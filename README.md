@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="cortana-md-logo.png" alt="Cortana MD Logo" width="100%">
+  <img src="cortana-md-logo.svg" alt="Cortana MD Logo" width="100%">
 </p>
 
 ---
