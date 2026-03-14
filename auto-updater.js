@@ -9,7 +9,7 @@ const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-const PKG_NAME = '@depro-tech/cortana-md';
+const PKG_NAME = '@cortana-md/engine';
 const CHECK_INTERVAL = 60 * 1000; // 60 seconds
 
 function log(msg) {

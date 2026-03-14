@@ -8,7 +8,7 @@
         "install-bot": "npm install @cortana-md/engine@latest"
     },
     "dependencies": {
-        "@cortana-md/engine": "https://github.com/depro-tech/cortana-Web/archive/refs/heads/engine-release.tar.gz"
+        "@cortana-md/engine": "1.2.67"
     },
     "engines": {
         "node": ">=18.0.0"
