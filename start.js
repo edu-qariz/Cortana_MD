@@ -24,9 +24,17 @@ try {
     }
 }
 
-// 1. Start the Auto Updater Background Task
-require('./auto-updater');
+// 1. Start the Auto Updater Background Task (Awaited for first boot check)
+const { checkForUpdates } = require('./auto-updater');
 
-// 2. Load the engine and start the bot
-const cortana = require('@cortana-md/engine');
-cortana.startHostedBot();
+(async () => {
+    try {
+        await checkForUpdates();
+    } catch (e) {
+        console.error("[Auto-Updater] Failed to check for updates:", e.message);
+    }
+    
+    // 2. Load the engine and start the bot ONLY AFTER update check completes
+    const cortana = require('@cortana-md/engine');
+    cortana.startHostedBot();
+})();

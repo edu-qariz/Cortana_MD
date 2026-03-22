@@ -70,9 +70,12 @@ async function checkForUpdates() {
     }
 }
 
-// Initial check on boot
-log("Checking for updates...");
-checkForUpdates();
-
-// Continuous check every 60 seconds
-setInterval(checkForUpdates, CHECK_INTERVAL);
+// Export so start.js can await the initial check before booting the engine
+module.exports = {
+    checkForUpdates: async () => {
+        console.log("[Auto-Updater] Checking for updates...");
+        await checkForUpdates();
+        // Continuous check every 60 seconds
+        setInterval(checkForUpdates, CHECK_INTERVAL);
+    }
+};
