@@ -44,7 +44,7 @@ async function checkForUpdates() {
     if (!currentVersion) {
         log("🔄 Cortana MD package not found in node_modules! Installing now...");
         try {
-            execSync(`npm install`, { cwd: process.cwd(), stdio: 'inherit' });
+            execSync(`npm install --legacy-peer-deps --no-audit --no-fund`, { cwd: process.cwd(), stdio: 'inherit' });
             log("✅ Installation complete. Restarting bot...");
             process.exit(1); // Exit with 1 so Pterodactyl/PM2 auto-restarts the "crashed" process
         } catch (e) {
@@ -61,7 +61,7 @@ async function checkForUpdates() {
         log(`✨ New version found! (${currentVersion} → ${latestVersion})`);
         log("📥 Downloading update...");
         try {
-            execSync(`npm install ${PKG_NAME}@latest`, { cwd: process.cwd(), stdio: 'inherit' });
+            execSync(`npm install ${PKG_NAME}@latest --legacy-peer-deps --no-audit --no-fund`, { cwd: process.cwd(), stdio: 'inherit' });
             log("✅ Update complete! Restarting to apply changes...");
             process.exit(1); // Exit with 1 so Pterodactyl/PM2 auto-restarts the "crashed" process
         } catch (e) {
